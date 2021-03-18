@@ -3,6 +3,7 @@ class AppImagePaths {
   static String chair = 'assets/chair.jpg';
   static String chris = 'assets/chris.jpg';
   static String desk = 'assets/desk.png';
+  static String desks = 'assets/desks.png';
   static String dresser = 'assets/dresser.png';
   static String dressers = 'assets/dressers.png';
   static String ottoman = 'assets/ottoman.jpg';
