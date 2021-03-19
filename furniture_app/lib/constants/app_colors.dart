@@ -14,4 +14,5 @@ class AppColors {
   static Color red = Colors.red;
   static Color brightOrange = Color(0xFFF9C335);
   static Color darkSoftYellow = Color(0xFFFEDD59);
+  static Color black = Colors.black;
 }

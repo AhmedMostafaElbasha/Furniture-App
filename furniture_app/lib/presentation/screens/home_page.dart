@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture_app/data/dummies/furniture_items.dart';
@@ -14,6 +15,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+
+  var homeSelected = true;
+  var offerSelected = false;
+  var storeSelected = false;
+  var profileSelected = false;
 
   @override
   void initState() {
@@ -43,7 +49,7 @@ class _HomePageState extends State<HomePage>
                 _customAppBar(context),
                 _customTabBar(),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(16)),
+                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(0)),
                   child: Container(
                     height: ScreenUtil().screenHeight * 0.6,
                     width: ScreenUtil().screenWidth,
@@ -60,6 +66,82 @@ class _HomePageState extends State<HomePage>
           ),
         ),
       ),
+      bottomNavigationBar: _customBottomNavigationBar(),
+    );
+  }
+
+  Padding _customBottomNavigationBar() {
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: ScreenUtil().setHeight(12),
+      ),
+      child: Material(
+        color: AppColors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _customTab(
+              icon: CupertinoIcons.home,
+              flag: homeSelected,
+              onTap: () {
+                setState(() {
+                  homeSelected = true;
+                  offerSelected = false;
+                  storeSelected = false;
+                  profileSelected = false;
+                });
+              },
+            ),
+            _customTab(
+              icon: CupertinoIcons.slash_circle,
+              flag: offerSelected,
+              onTap: () {
+                setState(() {
+                  homeSelected = false;
+                  offerSelected = true;
+                  storeSelected = false;
+                  profileSelected = false;
+                });
+              },
+            ),
+            _customTab(
+              icon: CupertinoIcons.shopping_cart,
+              flag: storeSelected,
+              onTap: () {
+                setState(() {
+                  homeSelected = false;
+                  offerSelected = false;
+                  storeSelected = true;
+                  profileSelected = false;
+                });
+              },
+            ),
+            _customTab(
+              icon: CupertinoIcons.person,
+              flag: profileSelected,
+              onTap: () {
+                setState(() {
+                  homeSelected = false;
+                  offerSelected = false;
+                  storeSelected = false;
+                  profileSelected = true;
+                });
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  IconButton _customTab({IconData icon, bool flag, Function onTap}) {
+    return IconButton(
+      icon: Icon(
+        icon,
+        color: flag ? AppColors.brightSun : AppColors.black,
+        size: 38,
+      ),
+      onPressed: onTap,
     );
   }
 
@@ -90,7 +172,7 @@ class _HomePageState extends State<HomePage>
     return Stack(
       children: [
         Container(
-          height: ScreenUtil().setHeight(250),
+          height: ScreenUtil().setHeight(240),
           width: ScreenUtil().screenWidth,
           color: AppColors.brightSun,
         ),
