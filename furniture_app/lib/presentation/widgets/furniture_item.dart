@@ -13,9 +13,9 @@ class FurnitureItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: ScreenUtil().setHeight(15),
-        left: ScreenUtil().setWidth(16),
-        right: ScreenUtil().setWidth(16),
+        top: ScreenUtil().setHeight(8),
+        left: ScreenUtil().setWidth(10),
+        right: ScreenUtil().setWidth(10),
       ),
       child: Card(
         elevation: 3.0,
@@ -57,7 +57,7 @@ class FurnitureItem extends StatelessWidget {
                           ),
                           Container(
                             height: ScreenUtil().setHeight(40),
-                            width: ScreenUtil().setWidth(98),
+                            width: ScreenUtil().setWidth(110),
                             color: AppColors.darkSoftYellow,
                             child: Center(
                               child: AppTextDisplay(
